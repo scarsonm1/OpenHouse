@@ -9,7 +9,15 @@ namespace OpenHouse
         public static bool UserAnswersYes(string question)
         {
             Console.WriteLine(question);
-            return Console.ReadLine().ToUpper() == "Y";
+            string response = Console.ReadLine().ToUpper();
+
+            string[] affirmativeOptions = { "Y", "YES", "YEP", "YUP", "YEAH", "SURE", "YES, PLEASE", "ABSOLUTELY" };
+            foreach (string option in affirmativeOptions)
+            {
+                if (response == option) return true;
+            }
+
+            return false;
         }
     }
 }
